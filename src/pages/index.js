@@ -74,13 +74,11 @@ export default class IndexPage extends React.Component {
       targets: '#show-description-btn',
       opacity: 1,
       delay: 900,
-      // translateX: '1rem',
     });
     anime({
       targets: '#show-contact-btn',
       opacity: 1,
       delay: 900,
-      // translateX: '1rem',
     });
   }
 

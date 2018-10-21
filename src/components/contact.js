@@ -3,6 +3,8 @@ import styled from "styled-components"
 import anime from "animejs"
 
 import LinkedInIcon from '../images/linkedin.svg'
+import GithubIcon from '../images/github.svg'
+import MailIcon from '../images/mail.svg'
 
 const ContactDiv = styled.div`
   font-family: 'Nunito Sans', sans-serif;
@@ -15,19 +17,26 @@ const ContactDiv = styled.div`
 
   opacity: 0;
 
-  p {
+  p, img {
     margin: 0;
+    font-size: 0.8em;
   }
   a {
     text-decoration: none;
+  }
+  a:visited {
+    color: hsla(0, 0%, 0%, 0.8);
   }
   .border-left {
     border-left: 0.5rem solid #3A4E48;
     padding-left: 1rem;
     margin-bottom: 1rem;
   }
-  #linkedin-icon {
-    width: 1.5rem;
+  .border-left p {
+    font-size: 0.8em;
+  }
+  .social-p {
+    font-size: 0.8rem;
   }
 
   @media(max-width: 420px) {
@@ -47,11 +56,20 @@ export default class Contact extends Component {
     return (
       <ContactDiv id="_contact">
         <div className="border-left">
-          <p>hchoi9413@gmail.com</p>
-          <a href="https://www.linkedin.com/in/hchoi9413/" target="_blank">
-            <img src={LinkedInIcon} alt="LinkedIn Icon" id="linkedin-icon"/>
-          </a>
+          <p>
+            I'm currently based in Waterloo, Canada. Always open to chat!
+          </p>
         </div>
+        <p className="social-p">
+          hchoi9413@gmail.com
+        </p>
+        <a href="https://www.linkedin.com/in/hchoi9413/" target="_blank" className="social-p">
+          <u>LINKEDIN</u>
+        </a>
+        <br/>
+        <a href="https://github.com/harryc9" target="_blank" className="social-p">
+          <u>GITHUB</u>
+        </a>
       </ContactDiv>
     )
   }

@@ -7,13 +7,13 @@ import { StaticQuery, graphql } from 'gatsby'
 import './layout.css'
 
 const Body = styled.div`
-  height: 100vh;
 `
 
 const UnderBody = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   height: 100%;
   border-top: 3rem solid #BEB0A7;
   border-left: 3rem solid #BEB0A7;
@@ -22,6 +22,7 @@ const UnderBody = styled.div`
 
   @media(max-width: 420px) {
     flex-direction: column;
+    flex: 1 0 auto;
     border: 0;
     border-top: 3rem solid #BEB0A7;
   }
