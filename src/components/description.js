@@ -27,7 +27,10 @@ const DescriptionDiv = styled.div`
     display: block;
   }
   #fave-stack {
-    margin-top: 1rem;
+    margin-top: 2rem;
+  }
+  #fave-stack h3 {
+    margin-bottom: 1rem;
   }
 
   @media(max-width: 420px) {
@@ -50,10 +53,10 @@ export default class Description extends Component {
           <img src={HarryPicture} alt="Harry's ugly face" id="harry-pic" />
           <div className="border-left">
             <p>Hi! I'm Harry, currently working full-time as a <b>Software Engineer</b>.</p>
-            <p>Currently obsessed with dogs, meeting hardworking people, and going to the gym.</p>
+            <p>Currently obsessed with music, web technologies, and meeting new people.</p>
           </div>
           <div id="fave-stack">
-            <p>Current Fave Stack:</p>
+            <h3>Current Stack:</h3>
             <ul>
               <li>React (Next.js)</li>
               <li>Node</li>

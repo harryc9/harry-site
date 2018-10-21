@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from "styled-components"
+import anime from 'animejs'
 
 import Layout from '../components/layout'
 import Description from '../components/description'
+import Contact from '../components/contact'
 
 const Brain = styled.div`
   font-family: 'Nunito Sans', sans-serif;
@@ -11,10 +13,12 @@ const Brain = styled.div`
   background-color: #8B9D83;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
   text-align: right;
-  h1 {
+  #name {
     letter-spacing: 0.5rem;
+    opacity: 0;
   }
-  p {
+  #role {
+    opacity: 0;
   }
   img {
     width: 1.75rem;
@@ -39,6 +43,10 @@ const Brain = styled.div`
   }
   #show-description-btn {
     margin-bottom: 0.5rem;
+    opacity: 0;
+  }
+  #show-contact-btn {
+    opacity: 0;
   }
 `
 
@@ -47,7 +55,33 @@ export default class IndexPage extends React.Component {
     super(props)
     this.state = {
       showDescription: false,
+      showContact: false,
     }
+  }
+
+  componentDidMount = () => {
+    anime({
+      targets: '#name',
+      opacity: 1,
+      delay: 300,
+    });
+    anime({
+      targets: '#role',
+      opacity: 1,
+      delay: 500,
+    });
+    anime({
+      targets: '#show-description-btn',
+      opacity: 1,
+      delay: 900,
+      // translateX: '1rem',
+    });
+    anime({
+      targets: '#show-contact-btn',
+      opacity: 1,
+      delay: 900,
+      // translateX: '1rem',
+    });
   }
 
   toggleDescription = () => {
@@ -56,17 +90,24 @@ export default class IndexPage extends React.Component {
     }));
   }
 
+  toggleContact = () => {
+    this.setState(prevState => ({
+      showContact: !prevState.showContact
+    }));
+  }
+
   render() {
     return (
       <Layout>
         <Brain>
-          <h1>HARRY CHOI</h1>
-          <p>Engineer & Entrepreneur</p>
+          <h1 id="name">HARRY CHOI</h1>
+          <p id="role">Engineer & Entrepreneur</p>
           <button className="nav-btn" id="show-description-btn" onClick={this.toggleDescription}>about me?</button>
           <br/>
-          <button className="nav-btn" id="show-contact-btn">msg me?</button>
+          <button className="nav-btn" id="show-contact-btn" onClick={this.toggleContact}>msg me?</button>
         </Brain>
         { this.state.showDescription ? <Description></Description> : null }
+        { this.state.showContact ? <Contact></Contact> : null }
       </Layout>
     )
   };
