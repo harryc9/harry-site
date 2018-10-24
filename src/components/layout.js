@@ -20,7 +20,7 @@ const UnderBody = styled.div`
 
   padding: 1rem;
 
-  @media(max-width: 420px) {
+  @media(max-width: 1200px) {
     flex-direction: column;
     flex: 1 0 auto;
     border: 0;

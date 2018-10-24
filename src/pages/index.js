@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import anime from 'animejs'
+// import { Transition } from 'react-transition-group'
 
 import Layout from '../components/layout'
 import Description from '../components/description'
@@ -104,7 +105,16 @@ export default class IndexPage extends React.Component {
           <br/>
           <button className="nav-btn" id="show-contact-btn" onClick={this.toggleContact}>msg me?</button>
         </Brain>
-        { this.state.showDescription ? <Description></Description> : null }
+        { this.state.showDescription ? (
+          // <Transition
+          //   in={this.state.showDescription}
+          //   timeout={{
+          //     exit: 10000,
+          //   }}
+          // >
+          <Description></Description>
+          // </Transition>
+        ) : null }
         { this.state.showContact ? <Contact></Contact> : null }
       </Layout>
     )

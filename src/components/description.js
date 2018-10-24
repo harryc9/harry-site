@@ -33,7 +33,7 @@ const DescriptionDiv = styled.div`
     margin-bottom: 1rem;
   }
 
-  @media(max-width: 420px) {
+  @media(max-width: 1200px) {
     margin: 1rem 0 0 0;
   }
 `;
@@ -45,6 +45,14 @@ export default class Description extends Component {
       opacity: 1,
     });
   }
+
+  componentWillUnmount = () => {
+    anime({
+      targets: '#_description',
+      opacity: 0,
+    });
+  }
+
 
   render() {
     return (

@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import styled from "styled-components"
 import anime from "animejs"
 
-import LinkedInIcon from '../images/linkedin.svg'
-import GithubIcon from '../images/github.svg'
-import MailIcon from '../images/mail.svg'
-
 const ContactDiv = styled.div`
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1.2em;
@@ -39,7 +35,7 @@ const ContactDiv = styled.div`
     font-size: 0.8rem;
   }
 
-  @media(max-width: 420px) {
+  @media(max-width: 1200px) {
     margin: 1rem 0 0 0;
   }
 `;
@@ -50,6 +46,7 @@ export default class Contact extends Component {
       targets: '#_contact',
       opacity: 1,
     });
+    document.getElementById('_contact').scrollIntoView();
   }
 
   render() {
