@@ -1,7 +1,6 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 import anime from 'animejs'
-// import { Transition } from 'react-transition-group'
 
 import Layout from '../components/layout'
 import Description from '../components/description'
@@ -11,8 +10,8 @@ const Brain = styled.div`
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1.2em;
   padding: 2rem;
-  background-color: #8B9D83;
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  background-color: #8b9d83;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   text-align: right;
   #name {
     letter-spacing: 0.5rem;
@@ -26,7 +25,7 @@ const Brain = styled.div`
     height: 1.75rem;
   }
   .nav-btn {
-    background-color: #BEB0A7;
+    background-color: #beb0a7;
     padding: 0.5rem;
     outline: none;
     border: 0;
@@ -34,7 +33,7 @@ const Brain = styled.div`
     letter-spacing: 0.15rem;
     font-weight: 300;
     font-size: 1rem;
-    color: #3A4E48;
+    color: #3a4e48;
     cursor: pointer;
 
     transition: 0.25s;
@@ -65,34 +64,34 @@ export default class IndexPage extends React.Component {
       targets: '#name',
       opacity: 1,
       delay: 300,
-    });
+    })
     anime({
       targets: '#role',
       opacity: 1,
       delay: 500,
-    });
+    })
     anime({
       targets: '#show-description-btn',
       opacity: 1,
       delay: 900,
-    });
+    })
     anime({
       targets: '#show-contact-btn',
       opacity: 1,
       delay: 900,
-    });
+    })
   }
 
   toggleDescription = () => {
     this.setState(prevState => ({
-      showDescription: !prevState.showDescription
-    }));
+      showDescription: !prevState.showDescription,
+    }))
   }
 
   toggleContact = () => {
     this.setState(prevState => ({
-      showContact: !prevState.showContact
-    }));
+      showContact: !prevState.showContact,
+    }))
   }
 
   render() {
@@ -101,22 +100,25 @@ export default class IndexPage extends React.Component {
         <Brain>
           <h1 id="name">HARRY CHOI</h1>
           <p id="role">Engineer & Entrepreneur</p>
-          <button className="nav-btn" id="show-description-btn" onClick={this.toggleDescription}>about me?</button>
-          <br/>
-          <button className="nav-btn" id="show-contact-btn" onClick={this.toggleContact}>msg me?</button>
+          <button
+            className="nav-btn"
+            id="show-description-btn"
+            onClick={this.toggleDescription}
+          >
+            about me?
+          </button>
+          <br />
+          <button
+            className="nav-btn"
+            id="show-contact-btn"
+            onClick={this.toggleContact}
+          >
+            msg me?
+          </button>
         </Brain>
-        { this.state.showDescription ? (
-          // <Transition
-          //   in={this.state.showDescription}
-          //   timeout={{
-          //     exit: 10000,
-          //   }}
-          // >
-          <Description></Description>
-          // </Transition>
-        ) : null }
-        { this.state.showContact ? <Contact></Contact> : null }
+        {this.state.showDescription ? <Description /> : null}
+        {this.state.showContact ? <Contact /> : null}
       </Layout>
     )
-  };
+  }
 }
